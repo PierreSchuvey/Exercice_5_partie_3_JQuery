@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.1.js"></script>
+  <title>Exercice 5</title>
+</head>
+<body>
+    <div id="carre">
+      <form>
+        <input type="text" id="keyBind" />
+      </form>
+    </div>
+  <script>
+  $('#keyBind').css('width','80px');
+  $('#carre').css('border','solid 2px black');
+  $('#carre').css('width','100px');
+  $('#carre').css('height','100px');
+  marginLeft = 0;
+  marginTop = 0;
+  maxWidth = $(document).width();
+  maxHeight = $(document).height();
+  $('#keyBind').keydown(function(touche){
+   switch (touche.which){
+     case 37://left
+     if(marginLeft < -100){
+       marginLeft=maxWidth;
+       $('#carre').css('margin-left',marginLeft+'px');break;
+     }
+     else{
+       marginLeft=marginLeft-10;
+       $('#carre').css('margin-left',marginLeft+'px');break;
+     }
+     case 38://top
+     if(marginTop < -100){
+       marginTop=maxHeight;
+       $('#carre').css('margin-top',marginTop+'px');break;
+     }
+     else{
+       marginTop=marginTop-10;
+       $('#carre').css('margin-top',marginTop+'px');break;
+     }
+     case 39://right
+     if(marginLeft > maxWidth){
+       marginLeft=0;
+       $('#carre').css('margin-left',marginLeft+'px');break;
+     }
+     else{
+       marginLeft=marginLeft+10;
+       $('#carre').css('margin-left',marginLeft+'px');break;
+     }
+     case 40://bottom
+     if(marginTop > maxHeight){
+       marginTop=0;
+       $('#carre').css('margin-top',marginTop+'px');break;
+     }
+     else{
+       marginTop=marginTop+10;
+       $('#carre').css('margin-top',marginTop+'px');break;
+     }
+   }
+});
+  </script>
+</body>
+</html>
